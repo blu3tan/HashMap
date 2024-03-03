@@ -153,4 +153,18 @@ export default class LinkedList {
 		previous.next = current.next;
 		this.size--;
 	}
+
+	removeKey(key) {
+		let current = this.head;
+		let previous;
+		let index = 0;
+		if (current.key == key && index == 0) return (this.head = current.next);
+		while (current.next !== null) {
+			previous = current;
+			current = current.next;
+			index++;
+		}
+		if (current.key != key) return;
+		return (previous.next = current.next);
+	}
 }

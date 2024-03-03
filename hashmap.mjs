@@ -44,6 +44,15 @@ class hashMap {
 		return bucket.listContains(key);
 	}
 
+	//Remove key if present and return true
+	//If the key is not present return false
+	remove(key) {
+		let index = this.hash(key);
+		let bucket = this.array[index];
+		if (!bucket || bucket.listContains(key) == false) return;
+		return bucket.removeKey(key);
+	}
+
 	//Returns the array with the values inside
 	values() {
 		// Initialize an array just for formatting and display
@@ -66,8 +75,19 @@ class hashMap {
 
 const map = new hashMap();
 
-map.set('alfa', 100);
-map.set('fala', 200);
+map.set('alpha', 100);
+map.set('beta', 200);
+map.set('gamma', 300);
+map.set('delta', 400);
+map.set('epsilon', 500);
+map.set('zeta', 600);
+map.set('eta', 700);
+map.set('theta', 800);
+map.set('iota', 900);
+
 map.values();
 
-map.has('fala');
+map.remove('theta');
+map.remove('zepsilon');
+
+map.values();
