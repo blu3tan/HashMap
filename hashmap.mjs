@@ -71,6 +71,17 @@ class hashMap {
 		});
 		return console.table(displayArray);
 	}
+
+	//Returns the number of stored keys in the hash map.
+	length() {
+		// console.log(this.array[2].size);
+		let total = 0;
+		this.array.forEach((item) => {
+			if (!item) total += 0;
+			total += item.size;
+		});
+		return console.log(`This hashmap has ${total} keys`);
+	}
 }
 
 const map = new hashMap();
@@ -91,3 +102,4 @@ map.remove('theta');
 map.remove('zepsilon');
 
 map.values();
+map.length();
