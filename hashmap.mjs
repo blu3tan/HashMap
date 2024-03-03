@@ -28,12 +28,12 @@ class hashMap {
 	}
 
 	// Takes one argument as a key and returns the value
-	// that is assigned to this key, If a key is not found, return null.
+	// that is assigned to this key. If a key is not found, return null.
 	get(key) {
 		let index = this.hash(key);
 		let bucket = this.array[index];
 		if (!bucket) return console.log(null);
-		return console.log(bucket.find(key));
+		return bucket.find(key);
 	}
 
 	//Returns the array with the values inside
@@ -62,4 +62,4 @@ map.set('alfa', 100);
 map.set('fala', 200);
 map.values();
 
-map.get('fala');
+map.get('zena');

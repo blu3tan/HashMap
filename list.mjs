@@ -61,7 +61,6 @@ export default class LinkedList {
 		// To iterate also over the las node
 		let nodeKey = current.key;
 		if (nodeKey === key) return console.log(`${key} = ${current.value}`);
-		return;
 	}
 
 	// Prepend a new node at the start
