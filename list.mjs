@@ -84,16 +84,16 @@ export default class LinkedList {
 		this.size++;
 	}
 
-	//Check if a particular value is in the list
-	listContains(value) {
+	//Check if a particular key is in the list
+	listContains(key) {
 		let current = this.head;
 		while (current.next !== null) {
-			let nodeValue = current.value;
-			if (nodeValue == value) return console.log(true);
+			let nodeKey = current.key;
+			if (nodeKey == key) return console.log(true);
 			current = current.next;
 		}
-		let nodeValue = current.value;
-		if (nodeValue == value) return console.log(true);
+		let nodeKey = current.key;
+		if (nodeKey == key) return console.log(true);
 		return console.log(false);
 	}
 

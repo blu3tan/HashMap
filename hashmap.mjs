@@ -36,6 +36,14 @@ class hashMap {
 		return bucket.find(key);
 	}
 
+	// Returns true or false based on whether or not the key is in the hash map
+	has(key) {
+		let index = this.hash(key);
+		let bucket = this.array[index];
+		if (!bucket) return console.log(false);
+		return bucket.listContains(key);
+	}
+
 	//Returns the array with the values inside
 	values() {
 		// Initialize an array just for formatting and display
@@ -62,4 +70,4 @@ map.set('alfa', 100);
 map.set('fala', 200);
 map.values();
 
-map.get('zena');
+map.has('fala');
