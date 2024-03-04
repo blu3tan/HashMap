@@ -66,18 +66,46 @@ class hashMap {
 		this.array.forEach((item, index) => {
 			// Not using the to string list method bcs i want to
 			// display output in a different way
-			if (item === null) displayArray[index] = [];
-			if (item != null) {
-				let current = item.head;
-				let list = [];
-				while (current) {
-					list.push(current.value);
-					current = current.next;
-				}
-				displayArray[index] = list;
+			if (item === null) return (displayArray[index] = []);
+			let current = item.head;
+			let list = [];
+			while (current) {
+				list.push(current.value);
+				current = current.next;
 			}
+			displayArray[index] = list;
 		});
 		return console.table(displayArray);
+	}
+
+	//Returns an array containing all the keys inside the hash map.
+	keys() {
+		let keysArray = [];
+		this.array.forEach((item) => {
+			if (item != null) {
+				let current = item.head;
+				while (current) {
+					keysArray.push(current.key);
+					current = current.next;
+				}
+			}
+		});
+		return console.log(keysArray);
+	}
+
+	//Returns an array that contains each key, value pair.
+	entries() {
+		let entriesArray = [];
+		this.array.forEach((item) => {
+			if (item != null) {
+				let current = item.head;
+				while (current) {
+					entriesArray.push([current.key, current.value]);
+					current = current.next;
+				}
+			}
+		});
+		return console.table(entriesArray);
 	}
 
 	//Returns the number of stored keys in the hash map.
@@ -110,6 +138,5 @@ map.remove('zepsilon');
 map.values();
 map.length();
 
-map.clear();
-map.length();
-map.values();
+map.keys();
+map.entries();
