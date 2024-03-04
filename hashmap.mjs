@@ -2,7 +2,7 @@ import LinkedList from './list.mjs';
 
 class hashMap {
 	constructor() {
-		this.array = [];
+		this.array = new Array(16).fill(null);
 	}
 
 	// The hashing algo
@@ -53,6 +53,11 @@ class hashMap {
 		return bucket.removeKey(key);
 	}
 
+	//Removes all entries in the hash map.
+	clear() {
+		this.array = new Array(16).fill(null);
+	}
+
 	//Returns the array with the values inside
 	values() {
 		// Initialize an array just for formatting and display
@@ -61,24 +66,25 @@ class hashMap {
 		this.array.forEach((item, index) => {
 			// Not using the to string list method bcs i want to
 			// display output in a different way
-			let current = item.head;
-			let list = [];
-			while (current) {
-				list.push(current.value);
-				current = current.next;
+			if (item === null) displayArray[index] = [];
+			if (item != null) {
+				let current = item.head;
+				let list = [];
+				while (current) {
+					list.push(current.value);
+					current = current.next;
+				}
+				displayArray[index] = list;
 			}
-			displayArray[index] = list;
 		});
 		return console.table(displayArray);
 	}
 
 	//Returns the number of stored keys in the hash map.
 	length() {
-		// console.log(this.array[2].size);
 		let total = 0;
 		this.array.forEach((item) => {
-			if (!item) total += 0;
-			total += item.size;
+			if (item != null) total += item.size;
 		});
 		return console.log(`This hashmap has ${total} keys`);
 	}
@@ -103,3 +109,7 @@ map.remove('zepsilon');
 
 map.values();
 map.length();
+
+map.clear();
+map.length();
+map.values();
